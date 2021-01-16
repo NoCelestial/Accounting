@@ -16,7 +16,7 @@ namespace Accounting.App
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ApplicationContext());
+            Application.Run(new Mainfrm());
         }
     }
 }
