@@ -56,10 +56,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CustomerManagefrm.cs">
+    <Compile Include="Customers\AECustomerfrm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CustomerManagefrm.Designer.cs">
+    <Compile Include="Customers\AECustomerfrm.Designer.cs">
+      <DependentUpon>AECustomerfrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Customers\CustomerManagefrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Customers\CustomerManagefrm.Designer.cs">
       <DependentUpon>CustomerManagefrm.cs</DependentUpon>
     </Compile>
     <Compile Include="Mainfrm.cs">
@@ -70,7 +76,10 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="CustomerManagefrm.resx">
+    <EmbeddedResource Include="Customers\AECustomerfrm.resx">
+      <DependentUpon>AECustomerfrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Customers\CustomerManagefrm.resx">
       <DependentUpon>CustomerManagefrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Mainfrm.resx">
@@ -159,6 +168,9 @@
       <Project>{91f30ccd-9d66-40f7-8fdb-8f93cce876b0}</Project>
       <Name>Accounting.DataLayer</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\no-profile-image.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

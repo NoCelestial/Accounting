@@ -21,6 +21,11 @@ namespace Accounting.DataLayer.Service
             return context.Customers.ToList();
         }
 
+        public IEnumerable<Customers> GetCustomersByFilter(string parameter)
+        {
+            return context.Customers.Where(c => c.FullName.Contains(parameter) || c.Email.Contains(parameter) || c.Mobile.Contains(parameter)).ToList();
+        }
+
         public Customers GetCustomerById(int id)
         {
             return context.Customers.SingleOrDefault(c => c.CustomersID == id);
@@ -31,7 +36,6 @@ namespace Accounting.DataLayer.Service
             try
             {
                 context.Customers.Add(customer);
-                Save();
                 return true;
             }
             catch
@@ -45,7 +49,6 @@ namespace Accounting.DataLayer.Service
             try
             {
                 context.Entry(customer).State = EntityState.Modified;
-                Save();
                 return true;
             }
             catch
@@ -59,7 +62,6 @@ namespace Accounting.DataLayer.Service
             try
             {
                 context.Entry(customer).State = EntityState.Deleted;
-                Save();
                 return true;
             }
             catch 
@@ -82,9 +84,6 @@ namespace Accounting.DataLayer.Service
             }
         }
 
-        public void Save()
-        {
-            context.SaveChanges();
-        }
+        
     }
 }

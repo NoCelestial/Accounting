@@ -69,6 +69,7 @@ namespace Accounting.App
             this.btnnewCustomer.Size = new System.Drawing.Size(90, 59);
             this.btnnewCustomer.Text = "New Customer";
             this.btnnewCustomer.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnnewCustomer.Click += new System.EventHandler(this.btnnewCustomer_Click);
             // 
             // btnEditCustomer
             // 
@@ -89,6 +90,7 @@ namespace Accounting.App
             this.btndeletecustomer.Size = new System.Drawing.Size(99, 59);
             this.btndeletecustomer.Text = "Delete Customer";
             this.btndeletecustomer.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btndeletecustomer.Click += new System.EventHandler(this.btndeletecustomer_Click);
             // 
             // btnrefresh
             // 
@@ -112,6 +114,7 @@ namespace Accounting.App
             this.toolStripTextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripTextBox1.Name = "toolStripTextBox1";
             this.toolStripTextBox1.Size = new System.Drawing.Size(100, 62);
+            this.toolStripTextBox1.TextChanged += new System.EventHandler(this.toolStripTextBox1_TextChanged);
             // 
             // dgvmain
             // 
@@ -168,7 +171,7 @@ namespace Accounting.App
             this.Controls.Add(this.dgvmain);
             this.Controls.Add(this.toolStrip1);
             this.Font = new System.Drawing.Font("Microsoft YaHei", 9F);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "CustomerManagefrm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
