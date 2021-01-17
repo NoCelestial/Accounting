@@ -16,5 +16,11 @@ namespace Accounting.App
         {
             InitializeComponent();
         }
+
+        private void btmcustomer_Click(object sender, EventArgs e)
+        {
+            CustomerManagefrm frm = new CustomerManagefrm();
+            frm.ShowDialog();
+        }
     }
 }
