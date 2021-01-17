@@ -16,6 +16,7 @@ namespace Accounting.App
 {
     public partial class AECustomerfrm : Form
     {
+        public int customerID = 0;
         public AECustomerfrm()
         {
             InitializeComponent();
@@ -44,7 +45,7 @@ namespace Accounting.App
                     {
                         Directory.CreateDirectory(path);
                     }
-                    pictureBox1.Image.Save(path+imagename);
+                    pictureBox1.Image.Save(path + imagename);
                     Customers customer = new Customers()
                     {
                         FullName = txtname.Text,
@@ -53,7 +54,15 @@ namespace Accounting.App
                         Mobile = txtmobile.Text,
                         CustomerImage = imagename
                     };
-                    db.CustomerRepository.InsertCustomer(customer);
+                    if (customerID == 0)
+                    {
+                        db.CustomerRepository.InsertCustomer(customer);
+                    }
+                    else
+                    {
+                        var editcustomer = db.CustomerRepository.GetCustomerById(customerID);
+                        db.CustomerRepository.UpdateCustomer(editcustomer);
+                    }
                     db.Save();
                 }
                 DialogResult = DialogResult.OK;
@@ -63,6 +72,23 @@ namespace Accounting.App
         private void btncancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void AECustomerfrm_Load(object sender, EventArgs e)
+        {
+            if (customerID != 0)
+            {
+                this.Text = "Edit Customer";
+                using (MainContext db = new MainContext())
+                {
+                    var customer = db.CustomerRepository.GetCustomerById(customerID);
+                    txtaddress.Text = customer.Address;
+                    txtemail.Text = customer.Email;
+                    txtmobile.Text = customer.Mobile;
+                    txtname.Text = customer.FullName;
+                    pictureBox1.ImageLocation = Application.StartupPath + "/Images/" + customer.CustomerImage;
+                }
+            }
         }
     }
 }

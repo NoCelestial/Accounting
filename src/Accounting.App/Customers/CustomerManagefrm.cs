@@ -56,11 +56,13 @@ namespace Accounting.App
                     string name = dgvmain.CurrentRow.Cells[1].Value.ToString();
 
                     int id = int.Parse(dgvmain.CurrentRow.Cells["CustomerID"].Value.ToString());
-                    if (MessageBox.Show($"Are You Sure To Delete {name} Customer?","Warning",MessageBoxButtons.YesNo,MessageBoxIcon.Warning)==DialogResult.Yes)
+                    if (MessageBox.Show($"Are You Sure To Delete {name} Customer?", "Warning", MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Warning) == DialogResult.Yes)
                     {
                         db.CustomerRepository.DeleteCustomer(id);
                         db.Save();
                     }
+
                     BindGrid();
                 }
             }
@@ -83,6 +85,8 @@ namespace Accounting.App
             {
                 int id = int.Parse(dgvmain.CurrentRow.Cells["CustomerID"].Value.ToString());
                 AECustomerfrm frm = new AECustomerfrm();
+                frm.customerID = int.Parse(dgvmain.CurrentRow.Cells[0].Value.ToString());
+                frm.ShowDialog();
             }
             else
             {
