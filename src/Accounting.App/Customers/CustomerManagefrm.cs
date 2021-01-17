@@ -53,8 +53,9 @@ namespace Accounting.App
                 
                 using (MainContext db = new MainContext())
                 {
-                    string name = dgvmain.CurrentRow.Cells[1].ToString();
-                    int id = int.Parse(dgvmain.CurrentRow.Cells[0].ToString());
+                    string name = dgvmain.CurrentRow.Cells[1].Value.ToString();
+
+                    int id = int.Parse(dgvmain.CurrentRow.Cells["CustomerID"].Value.ToString());
                     if (MessageBox.Show($"Are You Sure To Delete {name} Customer?","Warning",MessageBoxButtons.YesNo,MessageBoxIcon.Warning)==DialogResult.Yes)
                     {
                         db.CustomerRepository.DeleteCustomer(id);
@@ -73,6 +74,20 @@ namespace Accounting.App
         {
             AECustomerfrm ae = new AECustomerfrm();
             ae.ShowDialog();
+            BindGrid();
+        }
+
+        private void btnEditCustomer_Click(object sender, EventArgs e)
+        {
+            if (dgvmain.CurrentRow != null)
+            {
+                int id = int.Parse(dgvmain.CurrentRow.Cells["CustomerID"].Value.ToString());
+                AECustomerfrm frm = new AECustomerfrm();
+            }
+            else
+            {
+                MessageBox.Show("Please Select a Customer", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

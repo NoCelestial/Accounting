@@ -29,6 +29,8 @@ namespace Accounting.App
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AECustomerfrm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnpicture = new System.Windows.Forms.Button();
@@ -43,6 +45,8 @@ namespace Accounting.App
             this.txtmobile = new System.Windows.Forms.TextBox();
             this.txtname = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.requiredFieldValidator1 = new ValidationComponents.RequiredFieldValidator(this.components);
+            this.requiredFieldValidator2 = new ValidationComponents.RequiredFieldValidator(this.components);
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -81,7 +85,7 @@ namespace Accounting.App
             this.btnpicture.Location = new System.Drawing.Point(6, 216);
             this.btnpicture.Name = "btnpicture";
             this.btnpicture.Size = new System.Drawing.Size(204, 23);
-            this.btnpicture.TabIndex = 0;
+            this.btnpicture.TabIndex = 5;
             this.btnpicture.Text = "Set Picture";
             this.btnpicture.UseVisualStyleBackColor = true;
             this.btnpicture.Click += new System.EventHandler(this.btnpicture_Click);
@@ -91,18 +95,20 @@ namespace Accounting.App
             this.btncancel.Location = new System.Drawing.Point(127, 263);
             this.btncancel.Name = "btncancel";
             this.btncancel.Size = new System.Drawing.Size(95, 44);
-            this.btncancel.TabIndex = 1;
+            this.btncancel.TabIndex = 7;
             this.btncancel.Text = "Cancel";
             this.btncancel.UseVisualStyleBackColor = true;
+            this.btncancel.Click += new System.EventHandler(this.btncancel_Click);
             // 
             // btnsave
             // 
             this.btnsave.Location = new System.Drawing.Point(15, 263);
             this.btnsave.Name = "btnsave";
             this.btnsave.Size = new System.Drawing.Size(96, 44);
-            this.btnsave.TabIndex = 2;
+            this.btnsave.TabIndex = 6;
             this.btnsave.Text = "Save";
             this.btnsave.UseVisualStyleBackColor = true;
+            this.btnsave.Click += new System.EventHandler(this.btnsave_Click);
             // 
             // label1
             // 
@@ -145,29 +151,29 @@ namespace Accounting.App
             this.txtaddress.Location = new System.Drawing.Point(6, 176);
             this.txtaddress.Multiline = true;
             this.txtaddress.Name = "txtaddress";
-            this.txtaddress.Size = new System.Drawing.Size(258, 113);
-            this.txtaddress.TabIndex = 8;
+            this.txtaddress.Size = new System.Drawing.Size(247, 113);
+            this.txtaddress.TabIndex = 4;
             // 
             // txtemail
             // 
             this.txtemail.Location = new System.Drawing.Point(6, 130);
             this.txtemail.Name = "txtemail";
-            this.txtemail.Size = new System.Drawing.Size(258, 23);
-            this.txtemail.TabIndex = 9;
+            this.txtemail.Size = new System.Drawing.Size(247, 23);
+            this.txtemail.TabIndex = 3;
             // 
             // txtmobile
             // 
             this.txtmobile.Location = new System.Drawing.Point(6, 84);
             this.txtmobile.Name = "txtmobile";
-            this.txtmobile.Size = new System.Drawing.Size(258, 23);
-            this.txtmobile.TabIndex = 10;
+            this.txtmobile.Size = new System.Drawing.Size(247, 23);
+            this.txtmobile.TabIndex = 2;
             // 
             // txtname
             // 
             this.txtname.Location = new System.Drawing.Point(6, 36);
             this.txtname.Name = "txtname";
-            this.txtname.Size = new System.Drawing.Size(258, 23);
-            this.txtname.TabIndex = 11;
+            this.txtname.Size = new System.Drawing.Size(247, 23);
+            this.txtname.TabIndex = 1;
             // 
             // pictureBox1
             // 
@@ -178,6 +184,20 @@ namespace Accounting.App
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
+            // 
+            // requiredFieldValidator1
+            // 
+            this.requiredFieldValidator1.CancelFocusChangeWhenInvalid = false;
+            this.requiredFieldValidator1.ControlToValidate = this.txtname;
+            this.requiredFieldValidator1.ErrorMessage = "Please Fill Name";
+            this.requiredFieldValidator1.Icon = ((System.Drawing.Icon)(resources.GetObject("requiredFieldValidator1.Icon")));
+            // 
+            // requiredFieldValidator2
+            // 
+            this.requiredFieldValidator2.CancelFocusChangeWhenInvalid = false;
+            this.requiredFieldValidator2.ControlToValidate = this.txtmobile;
+            this.requiredFieldValidator2.ErrorMessage = "Please Fill Mobile";
+            this.requiredFieldValidator2.Icon = ((System.Drawing.Icon)(resources.GetObject("requiredFieldValidator2.Icon")));
             // 
             // AECustomerfrm
             // 
@@ -218,5 +238,7 @@ namespace Accounting.App
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btncancel;
         private System.Windows.Forms.Button btnsave;
+        private ValidationComponents.RequiredFieldValidator requiredFieldValidator1;
+        private ValidationComponents.RequiredFieldValidator requiredFieldValidator2;
     }
 }

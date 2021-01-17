@@ -80,6 +80,7 @@ namespace Accounting.App
             this.btnEditCustomer.Size = new System.Drawing.Size(86, 59);
             this.btnEditCustomer.Text = "Edit Customer";
             this.btnEditCustomer.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnEditCustomer.Click += new System.EventHandler(this.btnEditCustomer_Click);
             // 
             // btndeletecustomer
             // 
@@ -136,7 +137,7 @@ namespace Accounting.App
             // 
             // CustomerID
             // 
-            this.CustomerID.DataPropertyName = "CustomerID";
+            this.CustomerID.DataPropertyName = "CustomersID";
             this.CustomerID.HeaderText = "CustomerID";
             this.CustomerID.Name = "CustomerID";
             this.CustomerID.ReadOnly = true;
