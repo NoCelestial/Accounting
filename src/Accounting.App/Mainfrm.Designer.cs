@@ -31,9 +31,10 @@ namespace Accounting.App
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Mainfrm));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.btnsetting = new System.Windows.Forms.ToolStripDropDownButton();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.btmcustomer = new System.Windows.Forms.ToolStripButton();
+            this.btnNewAccounting = new System.Windows.Forms.ToolStripButton();
+            this.btnsetting = new System.Windows.Forms.ToolStripDropDownButton();
             this.toolStrip1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
             this.SuspendLayout();
@@ -48,19 +49,11 @@ namespace Accounting.App
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // btnsetting
-            // 
-            this.btnsetting.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btnsetting.Image = ((System.Drawing.Image)(resources.GetObject("btnsetting.Image")));
-            this.btnsetting.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnsetting.Name = "btnsetting";
-            this.btnsetting.Size = new System.Drawing.Size(62, 22);
-            this.btnsetting.Text = "Settings";
-            // 
             // toolStrip2
             // 
             this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btmcustomer});
+            this.btmcustomer,
+            this.btnNewAccounting});
             this.toolStrip2.Location = new System.Drawing.Point(0, 25);
             this.toolStrip2.Name = "toolStrip2";
             this.toolStrip2.Size = new System.Drawing.Size(678, 62);
@@ -77,6 +70,26 @@ namespace Accounting.App
             this.btmcustomer.Text = "Customer";
             this.btmcustomer.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btmcustomer.Click += new System.EventHandler(this.btmcustomer_Click);
+            // 
+            // btnNewAccounting
+            // 
+            this.btnNewAccounting.Image = global::Accounting.App.Properties.Resources._1370791030_credit_card;
+            this.btnNewAccounting.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.btnNewAccounting.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnNewAccounting.Name = "btnNewAccounting";
+            this.btnNewAccounting.Size = new System.Drawing.Size(100, 59);
+            this.btnNewAccounting.Text = "New Accounting";
+            this.btnNewAccounting.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnNewAccounting.Click += new System.EventHandler(this.btnNewAccounting_Click);
+            // 
+            // btnsetting
+            // 
+            this.btnsetting.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btnsetting.Image = ((System.Drawing.Image)(resources.GetObject("btnsetting.Image")));
+            this.btnsetting.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnsetting.Name = "btnsetting";
+            this.btnsetting.Size = new System.Drawing.Size(62, 22);
+            this.btnsetting.Text = "Settings";
             // 
             // Mainfrm
             // 
@@ -106,5 +119,6 @@ namespace Accounting.App
         private System.Windows.Forms.ToolStripDropDownButton btnsetting;
         private System.Windows.Forms.ToolStrip toolStrip2;
         private System.Windows.Forms.ToolStripButton btmcustomer;
+        private System.Windows.Forms.ToolStripButton btnNewAccounting;
     }
 }

@@ -48,6 +48,7 @@ namespace Accounting.DataLayer.Service
         {
             try
             {
+                context.Customers.Attach(customer);
                 context.Entry(customer).State = EntityState.Modified;
                 return true;
             }
@@ -61,6 +62,10 @@ namespace Accounting.DataLayer.Service
         {
             try
             {
+                if (context.Entry(customer).State == EntityState.Detached)
+                {
+                    context.Customers.Attach(customer);
+                }
                 context.Entry(customer).State = EntityState.Deleted;
                 return true;
             }

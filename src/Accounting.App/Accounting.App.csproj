@@ -76,6 +76,12 @@
     <Compile Include="Mainfrm.Designer.cs">
       <DependentUpon>Mainfrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Accounting\NewAccountingfrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accounting\NewAccountingfrm.Designer.cs">
+      <DependentUpon>NewAccountingfrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Validator\BaseValidator.cs">
@@ -108,6 +114,9 @@
     <Compile Include="Validator\RequiredFieldValidator.designer.cs">
       <DependentUpon>RequiredFieldValidator.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Accounting\NewAccountingfrm.resx">
+      <DependentUpon>NewAccountingfrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Customers\AECustomerfrm.resx">
       <DependentUpon>AECustomerfrm.cs</DependentUpon>
     </EmbeddedResource>
