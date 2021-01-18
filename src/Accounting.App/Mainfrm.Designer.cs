@@ -34,7 +34,9 @@ namespace Accounting.App
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.btmcustomer = new System.Windows.Forms.ToolStripButton();
             this.btnNewAccounting = new System.Windows.Forms.ToolStripButton();
+            this.btnreportincome = new System.Windows.Forms.ToolStripButton();
             this.btnsetting = new System.Windows.Forms.ToolStripDropDownButton();
+            this.btncost = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
             this.SuspendLayout();
@@ -53,7 +55,9 @@ namespace Accounting.App
             // 
             this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btmcustomer,
-            this.btnNewAccounting});
+            this.btnNewAccounting,
+            this.btnreportincome,
+            this.btncost});
             this.toolStrip2.Location = new System.Drawing.Point(0, 25);
             this.toolStrip2.Name = "toolStrip2";
             this.toolStrip2.Size = new System.Drawing.Size(678, 62);
@@ -73,7 +77,7 @@ namespace Accounting.App
             // 
             // btnNewAccounting
             // 
-            this.btnNewAccounting.Image = global::Accounting.App.Properties.Resources._1370791030_credit_card;
+            this.btnNewAccounting.Image = global::Accounting.App.Properties.Resources._1371476499_todo_list;
             this.btnNewAccounting.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnNewAccounting.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnNewAccounting.Name = "btnNewAccounting";
@@ -81,6 +85,17 @@ namespace Accounting.App
             this.btnNewAccounting.Text = "New Accounting";
             this.btnNewAccounting.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnNewAccounting.Click += new System.EventHandler(this.btnNewAccounting_Click);
+            // 
+            // btnreportincome
+            // 
+            this.btnreportincome.Image = global::Accounting.App.Properties.Resources.servicesCosts;
+            this.btnreportincome.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.btnreportincome.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnreportincome.Name = "btnreportincome";
+            this.btnreportincome.Size = new System.Drawing.Size(91, 59);
+            this.btnreportincome.Text = "InCome Report";
+            this.btnreportincome.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnreportincome.Click += new System.EventHandler(this.btnreportincome_Click);
             // 
             // btnsetting
             // 
@@ -90,6 +105,17 @@ namespace Accounting.App
             this.btnsetting.Name = "btnsetting";
             this.btnsetting.Size = new System.Drawing.Size(62, 22);
             this.btnsetting.Text = "Settings";
+            // 
+            // btncost
+            // 
+            this.btncost.Image = global::Accounting.App.Properties.Resources._1370791030_credit_card;
+            this.btncost.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.btncost.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btncost.Name = "btncost";
+            this.btncost.Size = new System.Drawing.Size(73, 59);
+            this.btncost.Text = "Cost Report";
+            this.btncost.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btncost.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // Mainfrm
             // 
@@ -120,5 +146,7 @@ namespace Accounting.App
         private System.Windows.Forms.ToolStrip toolStrip2;
         private System.Windows.Forms.ToolStripButton btmcustomer;
         private System.Windows.Forms.ToolStripButton btnNewAccounting;
+        private System.Windows.Forms.ToolStripButton btnreportincome;
+        private System.Windows.Forms.ToolStripButton btncost;
     }
 }
