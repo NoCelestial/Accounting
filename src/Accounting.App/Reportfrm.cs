@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Accounting.DataLayer.Context;
 
 namespace Accounting.App
 {
@@ -27,6 +28,21 @@ namespace Accounting.App
             else
             {
                 this.Text = "Cost Report";
+            }
+        }
+
+        private void btnapply_Click(object sender, EventArgs e)
+        {
+            Filter();
+        }
+
+        void Filter()
+        {
+            using (MainContext db = new MainContext())
+            {
+                var result = db.BaseRepositoryAccounting.Get(c => c.TypeID == TypeID);
+                dgvmain.AutoGenerateColumns = false;
+                dgvmain.DataSource = result;
             }
         }
     }
