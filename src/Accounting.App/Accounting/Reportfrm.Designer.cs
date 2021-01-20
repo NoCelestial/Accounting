@@ -36,10 +36,10 @@ namespace Accounting.App
             this.btnprint = new System.Windows.Forms.ToolStripButton();
             this.cbcustomers = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtdateout = new System.Windows.Forms.MaskedTextBox();
+            this.txtdatein = new System.Windows.Forms.MaskedTextBox();
             this.btnapply = new System.Windows.Forms.Button();
             this.dgvmain = new System.Windows.Forms.DataGridView();
-            this.txtdatein = new System.Windows.Forms.MaskedTextBox();
-            this.txtdateout = new System.Windows.Forms.MaskedTextBox();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Customer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -72,6 +72,7 @@ namespace Accounting.App
             this.btnedit.Size = new System.Drawing.Size(44, 59);
             this.btnedit.Text = "Edit";
             this.btnedit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnedit.Click += new System.EventHandler(this.btnedit_Click);
             // 
             // btndelete
             // 
@@ -127,6 +128,22 @@ namespace Accounting.App
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filter";
             // 
+            // txtdateout
+            // 
+            this.txtdateout.Location = new System.Drawing.Point(338, 22);
+            this.txtdateout.Mask = "0000/00/00";
+            this.txtdateout.Name = "txtdateout";
+            this.txtdateout.Size = new System.Drawing.Size(100, 23);
+            this.txtdateout.TabIndex = 7;
+            // 
+            // txtdatein
+            // 
+            this.txtdatein.Location = new System.Drawing.Point(232, 22);
+            this.txtdatein.Mask = "0000/00/00";
+            this.txtdatein.Name = "txtdatein";
+            this.txtdatein.Size = new System.Drawing.Size(100, 23);
+            this.txtdatein.TabIndex = 6;
+            // 
             // btnapply
             // 
             this.btnapply.Location = new System.Drawing.Point(444, 22);
@@ -154,22 +171,6 @@ namespace Accounting.App
             this.dgvmain.ReadOnly = true;
             this.dgvmain.Size = new System.Drawing.Size(578, 246);
             this.dgvmain.TabIndex = 5;
-            // 
-            // txtdatein
-            // 
-            this.txtdatein.Location = new System.Drawing.Point(232, 22);
-            this.txtdatein.Mask = "0000/00/00";
-            this.txtdatein.Name = "txtdatein";
-            this.txtdatein.Size = new System.Drawing.Size(100, 23);
-            this.txtdatein.TabIndex = 6;
-            // 
-            // txtdateout
-            // 
-            this.txtdateout.Location = new System.Drawing.Point(338, 22);
-            this.txtdateout.Mask = "0000/00/00";
-            this.txtdateout.Name = "txtdateout";
-            this.txtdateout.Size = new System.Drawing.Size(100, 23);
-            this.txtdateout.TabIndex = 7;
             // 
             // ID
             // 

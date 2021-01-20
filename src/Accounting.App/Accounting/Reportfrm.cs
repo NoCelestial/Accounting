@@ -92,5 +92,20 @@ namespace Accounting.App
             return;
         }
 
+        private void btnedit_Click(object sender, EventArgs e)
+        {
+            if (dgvmain.CurrentRow != null)
+            {
+                int acid = int.Parse(dgvmain.CurrentRow.Cells["ID"].Value.ToString());
+                NewAccountingfrm frm = new NewAccountingfrm();
+                frm.AID = acid;
+                frm.ShowDialog();
+                Filter();
+                return;
+            }
+
+            MessageBox.Show("Please Select a Row ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            return;
+        }
     }
 }

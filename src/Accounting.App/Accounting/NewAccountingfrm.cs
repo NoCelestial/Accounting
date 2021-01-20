@@ -17,6 +17,7 @@ namespace Accounting.App
     public partial class NewAccountingfrm : Form
     {
         MainContext db = new MainContext();
+        public int AID = 0;
         public NewAccountingfrm()
         {
             InitializeComponent();
@@ -24,6 +25,15 @@ namespace Accounting.App
 
         private void NewAccountingfrm_Load(object sender, EventArgs e)
         {
+            if (AID != 0)
+            {
+                this.Text = "Edit Accounting";
+                DataLayer.Accounting accounting = db.BaseRepositoryAccounting.GetById(AID);
+                txtCustomer.Text = accounting.Customers.FullName.ToString();
+                var rbtncostChecked = (accounting.TypeID == 1) ? rbtnInCome.Checked = true : rbtncost.Checked = true;
+                numericUpDown1.Text = accounting.Amount.ToString();
+                textBox1.Text = accounting.Description.ToString();
+            }
             dgvCustomer.AutoGenerateColumns = false;
             dgvCustomer.DataSource = db.CustomerRepository.GetAllCustomers();
         }
@@ -47,15 +57,27 @@ namespace Accounting.App
         {
             if (BaseValidator.IsFormValid(this.components))
             {
-                DataLayer.Accounting accounting = new DataLayer.Accounting()
+                if (AID == 0)
                 {
-                    CustomerID = int.Parse(dgvCustomer.CurrentRow.Cells[0].Value.ToString()),
-                    TypeID = byte.Parse(((rbtnInCome.Checked) ? 1 : 2).ToString()),
-                    Amount = int.Parse(numericUpDown1.Text.ToString()),
-                    DateTime = DateTime.Now,
-                    Description = textBox1.Text
-                };
-                db.BaseRepositoryAccounting.Insert(accounting);
+                    DataLayer.Accounting accounting = new DataLayer.Accounting()
+                    {
+                        CustomerID = int.Parse(dgvCustomer.CurrentRow.Cells[0].Value.ToString()),
+                        TypeID = byte.Parse(((rbtnInCome.Checked) ? 1 : 2).ToString()),
+                        Amount = int.Parse(numericUpDown1.Text.ToString()),
+                        DateTime = DateTime.Now,
+                        Description = textBox1.Text
+                    };
+                    db.BaseRepositoryAccounting.Insert(accounting);
+                }
+                else
+                {
+                    DataLayer.Accounting myAccounting = db.BaseRepositoryAccounting.GetById(AID);
+                    myAccounting.CustomerID = db.CustomerRepository.GetCustomersByName(txtCustomer.Text).CustomersID;
+                    myAccounting.Amount = int.Parse(numericUpDown1.Text);
+                    myAccounting.Description = textBox1.Text;
+                    myAccounting.TypeID = byte.Parse((((rbtnInCome.Checked) ? 1 : 2).ToString()));
+                    db.BaseRepositoryAccounting.Update(myAccounting);
+                }
                 db.Save();
                 DialogResult = DialogResult.OK;
             }
