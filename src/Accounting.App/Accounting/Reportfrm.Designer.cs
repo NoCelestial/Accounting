@@ -35,15 +35,16 @@ namespace Accounting.App
             this.btnrefresh = new System.Windows.Forms.ToolStripButton();
             this.btnprint = new System.Windows.Forms.ToolStripButton();
             this.cbcustomers = new System.Windows.Forms.ComboBox();
-            this.dpclast = new System.Windows.Forms.DateTimePicker();
-            this.dpcfirst = new System.Windows.Forms.DateTimePicker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnapply = new System.Windows.Forms.Button();
             this.dgvmain = new System.Windows.Forms.DataGridView();
+            this.txtdatein = new System.Windows.Forms.MaskedTextBox();
+            this.txtdateout = new System.Windows.Forms.MaskedTextBox();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Customer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DateTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Des = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvmain)).BeginInit();
@@ -81,6 +82,7 @@ namespace Accounting.App
             this.btndelete.Size = new System.Drawing.Size(44, 59);
             this.btndelete.Text = "Delete";
             this.btndelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btndelete.Click += new System.EventHandler(this.btndelete_Click);
             // 
             // btnrefresh
             // 
@@ -91,6 +93,7 @@ namespace Accounting.App
             this.btnrefresh.Size = new System.Drawing.Size(50, 59);
             this.btnrefresh.Text = "Refresh";
             this.btnrefresh.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnrefresh.Click += new System.EventHandler(this.btnrefresh_Click);
             // 
             // btnprint
             // 
@@ -108,29 +111,15 @@ namespace Accounting.App
             this.cbcustomers.FormattingEnabled = true;
             this.cbcustomers.Location = new System.Drawing.Point(6, 22);
             this.cbcustomers.Name = "cbcustomers";
-            this.cbcustomers.Size = new System.Drawing.Size(100, 23);
+            this.cbcustomers.Size = new System.Drawing.Size(220, 23);
             this.cbcustomers.TabIndex = 1;
-            // 
-            // dpclast
-            // 
-            this.dpclast.Location = new System.Drawing.Point(318, 22);
-            this.dpclast.Name = "dpclast";
-            this.dpclast.Size = new System.Drawing.Size(200, 23);
-            this.dpclast.TabIndex = 2;
-            // 
-            // dpcfirst
-            // 
-            this.dpcfirst.Location = new System.Drawing.Point(112, 22);
-            this.dpcfirst.Name = "dpcfirst";
-            this.dpcfirst.Size = new System.Drawing.Size(200, 23);
-            this.dpcfirst.TabIndex = 3;
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtdateout);
+            this.groupBox1.Controls.Add(this.txtdatein);
             this.groupBox1.Controls.Add(this.btnapply);
-            this.groupBox1.Controls.Add(this.dpcfirst);
             this.groupBox1.Controls.Add(this.cbcustomers);
-            this.groupBox1.Controls.Add(this.dpclast);
             this.groupBox1.Location = new System.Drawing.Point(12, 65);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(578, 59);
@@ -140,9 +129,9 @@ namespace Accounting.App
             // 
             // btnapply
             // 
-            this.btnapply.Location = new System.Drawing.Point(521, 22);
+            this.btnapply.Location = new System.Drawing.Point(444, 22);
             this.btnapply.Name = "btnapply";
-            this.btnapply.Size = new System.Drawing.Size(57, 23);
+            this.btnapply.Size = new System.Drawing.Size(128, 23);
             this.btnapply.TabIndex = 5;
             this.btnapply.Text = "Apply";
             this.btnapply.UseVisualStyleBackColor = true;
@@ -158,12 +147,29 @@ namespace Accounting.App
             this.ID,
             this.Customer,
             this.Amount,
-            this.DateTime});
+            this.DateTime,
+            this.Des});
             this.dgvmain.Location = new System.Drawing.Point(12, 130);
             this.dgvmain.Name = "dgvmain";
             this.dgvmain.ReadOnly = true;
             this.dgvmain.Size = new System.Drawing.Size(578, 246);
             this.dgvmain.TabIndex = 5;
+            // 
+            // txtdatein
+            // 
+            this.txtdatein.Location = new System.Drawing.Point(232, 22);
+            this.txtdatein.Mask = "0000/00/00";
+            this.txtdatein.Name = "txtdatein";
+            this.txtdatein.Size = new System.Drawing.Size(100, 23);
+            this.txtdatein.TabIndex = 6;
+            // 
+            // txtdateout
+            // 
+            this.txtdateout.Location = new System.Drawing.Point(338, 22);
+            this.txtdateout.Mask = "0000/00/00";
+            this.txtdateout.Name = "txtdateout";
+            this.txtdateout.Size = new System.Drawing.Size(100, 23);
+            this.txtdateout.TabIndex = 7;
             // 
             // ID
             // 
@@ -175,7 +181,7 @@ namespace Accounting.App
             // 
             // Customer
             // 
-            this.Customer.DataPropertyName = "CustomerID";
+            this.Customer.DataPropertyName = "CustomerName";
             this.Customer.HeaderText = "Customer";
             this.Customer.Name = "Customer";
             this.Customer.ReadOnly = true;
@@ -194,6 +200,13 @@ namespace Accounting.App
             this.DateTime.Name = "DateTime";
             this.DateTime.ReadOnly = true;
             // 
+            // Des
+            // 
+            this.Des.DataPropertyName = "Description";
+            this.Des.HeaderText = "Description";
+            this.Des.Name = "Des";
+            this.Des.ReadOnly = true;
+            // 
             // Reportfrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -211,6 +224,7 @@ namespace Accounting.App
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvmain)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -225,14 +239,15 @@ namespace Accounting.App
         private System.Windows.Forms.ToolStripButton btnrefresh;
         private System.Windows.Forms.ToolStripButton btnprint;
         private System.Windows.Forms.ComboBox cbcustomers;
-        private System.Windows.Forms.DateTimePicker dpclast;
-        private System.Windows.Forms.DateTimePicker dpcfirst;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnapply;
         private System.Windows.Forms.DataGridView dgvmain;
+        private System.Windows.Forms.MaskedTextBox txtdateout;
+        private System.Windows.Forms.MaskedTextBox txtdatein;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Customer;
         private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
         private System.Windows.Forms.DataGridViewTextBoxColumn DateTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Des;
     }
 }

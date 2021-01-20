@@ -89,6 +89,9 @@ namespace Accounting.DataLayer.Service
             }
         }
 
-        
+        public string GetCustomerNameById(int id)
+        {
+            return context.Customers.Find(id).FullName;
+        }
     }
 }

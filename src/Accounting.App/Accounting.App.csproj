@@ -84,10 +84,10 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Reportfrm.cs">
+    <Compile Include="Accounting\Reportfrm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Reportfrm.Designer.cs">
+    <Compile Include="Accounting\Reportfrm.Designer.cs">
       <DependentUpon>Reportfrm.cs</DependentUpon>
     </Compile>
     <Compile Include="Validator\BaseValidator.cs">
@@ -142,7 +142,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Reportfrm.resx">
+    <EmbeddedResource Include="Accounting\Reportfrm.resx">
       <DependentUpon>Reportfrm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />

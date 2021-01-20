@@ -84,6 +84,7 @@
     <Compile Include="Repository\ICustomerRepository.cs" />
     <Compile Include="Service\BaseRepository.cs" />
     <Compile Include="Service\CustomerRepository.cs" />
+    <Compile Include="ViewModel\ReportViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="AccountingModel.edmx">
