@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -123,6 +124,27 @@ namespace Accounting.App
 
             MessageBox.Show("Please Select a Row ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             return;
+        }
+
+        private void btnprint_Click(object sender, EventArgs e)
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Customer");
+            dt.Columns.Add("Amount");
+            dt.Columns.Add("DateTime");
+            dt.Columns.Add("Description");
+            foreach (DataGridViewRow dataGridViewRow in dgvmain.Rows)
+            {
+                dt.Rows.Add(
+                    dataGridViewRow.Cells[1].Value.ToString(),
+                    dataGridViewRow.Cells[2].Value.ToString(),
+                    dataGridViewRow.Cells[3].Value.ToString(),
+                    dataGridViewRow.Cells[4].Value.ToString()
+                    );
+            }
+            stiReport1.Load(Application.StartupPath+"/Report.mrt");
+            stiReport1.RegData("dt",dt);
+            stiReport1.Show();
         }
     }
 }

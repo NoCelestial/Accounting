@@ -45,6 +45,7 @@ namespace Accounting.App
             this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DateTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Des = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stiReport1 = new Stimulsoft.Report.StiReport();
             this.toolStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvmain)).BeginInit();
@@ -105,6 +106,7 @@ namespace Accounting.App
             this.btnprint.Size = new System.Drawing.Size(44, 59);
             this.btnprint.Text = "Print";
             this.btnprint.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnprint.Click += new System.EventHandler(this.btnprint_Click);
             // 
             // cbcustomers
             // 
@@ -208,6 +210,29 @@ namespace Accounting.App
             this.Des.Name = "Des";
             this.Des.ReadOnly = true;
             // 
+            // stiReport1
+            // 
+            this.stiReport1.CookieContainer = null;
+            this.stiReport1.EngineVersion = Stimulsoft.Report.Engine.StiEngineVersion.EngineV2;
+            this.stiReport1.Key = "fb7051c5837846429e84a3785f694c13";
+            this.stiReport1.ReferencedAssemblies = new string[] {
+        "System.Dll",
+        "System.Drawing.Dll",
+        "System.Windows.Forms.Dll",
+        "System.Data.Dll",
+        "System.Xml.Dll",
+        "Stimulsoft.Controls.Dll",
+        "Stimulsoft.Base.Dll",
+        "Stimulsoft.Report.Dll"};
+            this.stiReport1.ReportAlias = "Report";
+            this.stiReport1.ReportGuid = "d972647a68d847218e07a7f5ae38ce89";
+            this.stiReport1.ReportName = "Report";
+            this.stiReport1.ReportSource = null;
+            this.stiReport1.ReportUnit = Stimulsoft.Report.StiReportUnitType.Inches;
+            this.stiReport1.ScriptLanguage = Stimulsoft.Report.StiReportLanguageType.CSharp;
+            this.stiReport1.StoreImagesInResources = true;
+            this.stiReport1.UseProgressInThread = false;
+            // 
             // Reportfrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -250,5 +275,6 @@ namespace Accounting.App
         private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
         private System.Windows.Forms.DataGridViewTextBoxColumn DateTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn Des;
+        private Stimulsoft.Report.StiReport stiReport1;
     }
 }
