@@ -41,5 +41,15 @@ namespace Accounting.App
             frm.TypeID = 2;
             frm.ShowDialog();
         }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lbltime.Text = DateTime.Now.ToLongTimeString();
+        }
+
+        private void Mainfrm_Load(object sender, EventArgs e)
+        {
+            lblDate.Text = DateTime.Now.ToLongDateString();
+        }
     }
 }

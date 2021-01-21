@@ -33,8 +33,10 @@ namespace Accounting.App
                     this.Text = "Cost Report";
                 }
 
-                //cbcustomers.DataSource = db.CustomerRepository.GetAllCustomers().Select(c => c.FullName) ;
-                Filter();
+                cbcustomers.DataSource = db.CustomerRepository.GetAllCustomers();
+                cbcustomers.DisplayMember = "FullName";
+                cbcustomers.ValueMember = "CustomersID";
+                Filter(true);
             }
         }
 
@@ -43,11 +45,26 @@ namespace Accounting.App
             Filter();
         }
 
-        void Filter()
+        void Filter(bool basefilter=false)
         {
             using (MainContext db = new MainContext())
             {
-                var result = db.BaseRepositoryAccounting.Get(c => c.TypeID == TypeID);
+                List<DataLayer.Accounting> result = db.BaseRepositoryAccounting.Get(a => a.TypeID == TypeID).ToList();
+                if (!basefilter)
+                {
+                    result = result.Where(r => r.CustomerID == (int)cbcustomers.SelectedValue).ToList();
+                }
+
+                if (txtdatein.Text != "    /  /")
+                {
+
+                    result = result.Where(r => r.DateTime >= Convert.ToDateTime(txtdatein.Text)).ToList();
+                }
+
+                if (txtdateout.Text != "    /  /")
+                {
+                    result = result.Where(r => r.DateTime <= Convert.ToDateTime(txtdateout.Text)).ToList();
+                }
                 List<ReportViewModel> reportViewModels = new List<ReportViewModel>();
                 foreach (var accounting in result)
                 {

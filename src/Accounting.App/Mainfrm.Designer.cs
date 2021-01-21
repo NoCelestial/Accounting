@@ -29,16 +29,24 @@ namespace Accounting.App
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Mainfrm));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.btmcustomer = new System.Windows.Forms.ToolStripButton();
             this.btnNewAccounting = new System.Windows.Forms.ToolStripButton();
             this.btnreportincome = new System.Windows.Forms.ToolStripButton();
-            this.btnsetting = new System.Windows.Forms.ToolStripDropDownButton();
             this.btncost = new System.Windows.Forms.ToolStripButton();
+            this.btnsetting = new System.Windows.Forms.ToolStripDropDownButton();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.lblDate = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lbltime = new System.Windows.Forms.ToolStripStatusLabel();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.toolStrip1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -97,15 +105,6 @@ namespace Accounting.App
             this.btnreportincome.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnreportincome.Click += new System.EventHandler(this.btnreportincome_Click);
             // 
-            // btnsetting
-            // 
-            this.btnsetting.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btnsetting.Image = ((System.Drawing.Image)(resources.GetObject("btnsetting.Image")));
-            this.btnsetting.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnsetting.Name = "btnsetting";
-            this.btnsetting.Size = new System.Drawing.Size(62, 22);
-            this.btnsetting.Text = "Settings";
-            // 
             // btncost
             // 
             this.btncost.Image = global::Accounting.App.Properties.Resources._1370791030_credit_card;
@@ -117,11 +116,59 @@ namespace Accounting.App
             this.btncost.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btncost.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
+            // btnsetting
+            // 
+            this.btnsetting.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btnsetting.Image = ((System.Drawing.Image)(resources.GetObject("btnsetting.Image")));
+            this.btnsetting.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnsetting.Name = "btnsetting";
+            this.btnsetting.Size = new System.Drawing.Size(62, 22);
+            this.btnsetting.Text = "Settings";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Accounting.App.Properties.Resources.Untitled_1;
+            this.pictureBox1.Location = new System.Drawing.Point(412, 217);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(254, 226);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.lblDate,
+            this.lbltime});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 433);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(678, 22);
+            this.statusStrip1.TabIndex = 3;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // lblDate
+            // 
+            this.lblDate.Name = "lblDate";
+            this.lblDate.Size = new System.Drawing.Size(0, 17);
+            // 
+            // lbltime
+            // 
+            this.lbltime.Name = "lbltime";
+            this.lbltime.Size = new System.Drawing.Size(0, 17);
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // Mainfrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(678, 455);
+            this.Controls.Add(this.statusStrip1);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.toolStrip2);
             this.Controls.Add(this.toolStrip1);
             this.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -130,10 +177,14 @@ namespace Accounting.App
             this.Name = "Mainfrm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Accounting";
+            this.Load += new System.EventHandler(this.Mainfrm_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -148,5 +199,10 @@ namespace Accounting.App
         private System.Windows.Forms.ToolStripButton btnNewAccounting;
         private System.Windows.Forms.ToolStripButton btnreportincome;
         private System.Windows.Forms.ToolStripButton btncost;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel lblDate;
+        private System.Windows.Forms.ToolStripStatusLabel lbltime;
+        private System.Windows.Forms.Timer timer1;
     }
 }
