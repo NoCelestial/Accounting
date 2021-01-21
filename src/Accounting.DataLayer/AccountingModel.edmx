@@ -34,6 +34,14 @@
           <Property Name="Address" Type="nvarchar" MaxLength="500" />
           <Property Name="CustomerImage" Type="nvarchar" MaxLength="300" Nullable="false" />
         </EntityType>
+        <EntityType Name="SingIn">
+          <Key>
+            <PropertyRef Name="SingInID" />
+          </Key>
+          <Property Name="SingInID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SingInUserName" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="SingInPassword" Type="nvarchar" MaxLength="150" Nullable="false" />
+        </EntityType>
         <Association Name="FK_Accounting_AccountingTypes">
           <End Role="AccountingTypes" Type="Self.AccountingTypes" Multiplicity="1" />
           <End Role="Accounting" Type="Self.Accounting" Multiplicity="*" />
@@ -62,6 +70,7 @@
           <EntitySet Name="Accounting" EntityType="Self.Accounting" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AccountingTypes" EntityType="Self.AccountingTypes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SingIn" EntityType="Self.SingIn" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Accounting_AccountingTypes" Association="Self.FK_Accounting_AccountingTypes">
             <End Role="AccountingTypes" EntitySet="AccountingTypes" />
             <End Role="Accounting" EntitySet="Accounting" />
@@ -99,6 +108,7 @@
             <End Role="Customers" EntitySet="Customers" />
             <End Role="Accounting" EntitySet="Accounting" />
           </AssociationSet>
+          <EntitySet Name="SingIn" EntityType="Accounting_DBModel.SingIn" />
         </EntityContainer>
         <EntityType Name="Accounting">
           <Key>
@@ -145,6 +155,14 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="SingIn">
+          <Key>
+            <PropertyRef Name="SingInID" />
+          </Key>
+          <Property Name="SingInID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SingInUserName" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="SingInPassword" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -180,6 +198,15 @@
               <MappingFragment StoreEntitySet="AccountingTypes">
                 <ScalarProperty Name="TypeTitle" ColumnName="TypeTitle" />
                 <ScalarProperty Name="TypeID" ColumnName="TypeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SingIn">
+            <EntityTypeMapping TypeName="Accounting_DBModel.SingIn">
+              <MappingFragment StoreEntitySet="SingIn">
+                <ScalarProperty Name="SingInPassword" ColumnName="SingInPassword" />
+                <ScalarProperty Name="SingInUserName" ColumnName="SingInUserName" />
+                <ScalarProperty Name="SingInID" ColumnName="SingInID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

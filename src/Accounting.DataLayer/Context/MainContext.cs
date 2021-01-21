@@ -13,7 +13,8 @@ namespace Accounting.DataLayer.Context
         Accounting_DBEntities db = new Accounting_DBEntities();
         private ICustomerRepository _customerRepository;
         private BaseRepository<Accounting>  _baseRepositoryAccounting;
-
+        private BaseRepository<SingIn> _baseRepositorySingIn;
+            
         public ICustomerRepository CustomerRepository
         {
             get
@@ -36,6 +37,18 @@ namespace Accounting.DataLayer.Context
                 }
 
                 return _baseRepositoryAccounting;
+            }   
+        }
+        public BaseRepository<SingIn> BaseRepositorySingIn
+        {
+            get
+            {
+                if (_baseRepositorySingIn== null)
+                {
+                    _baseRepositorySingIn = new BaseRepository<SingIn>(db);
+                }
+
+                return _baseRepositorySingIn;
             }
         }
         public void Save()

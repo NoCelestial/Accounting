@@ -32,17 +32,18 @@ namespace Accounting.App
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Mainfrm));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.btnsetting = new System.Windows.Forms.ToolStripDropDownButton();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.btmcustomer = new System.Windows.Forms.ToolStripButton();
             this.btnNewAccounting = new System.Windows.Forms.ToolStripButton();
             this.btnreportincome = new System.Windows.Forms.ToolStripButton();
             this.btncost = new System.Windows.Forms.ToolStripButton();
-            this.btnsetting = new System.Windows.Forms.ToolStripDropDownButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lblDate = new System.Windows.Forms.ToolStripStatusLabel();
             this.lbltime = new System.Windows.Forms.ToolStripStatusLabel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.btnsinginsetting = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -58,6 +59,17 @@ namespace Accounting.App
             this.toolStrip1.Size = new System.Drawing.Size(678, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
+            // 
+            // btnsetting
+            // 
+            this.btnsetting.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btnsetting.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnsinginsetting});
+            this.btnsetting.Image = ((System.Drawing.Image)(resources.GetObject("btnsetting.Image")));
+            this.btnsetting.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnsetting.Name = "btnsetting";
+            this.btnsetting.Size = new System.Drawing.Size(62, 22);
+            this.btnsetting.Text = "Settings";
             // 
             // toolStrip2
             // 
@@ -116,15 +128,6 @@ namespace Accounting.App
             this.btncost.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btncost.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
-            // btnsetting
-            // 
-            this.btnsetting.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btnsetting.Image = ((System.Drawing.Image)(resources.GetObject("btnsetting.Image")));
-            this.btnsetting.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnsetting.Name = "btnsetting";
-            this.btnsetting.Size = new System.Drawing.Size(62, 22);
-            this.btnsetting.Text = "Settings";
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Accounting.App.Properties.Resources.Untitled_1;
@@ -161,6 +164,13 @@ namespace Accounting.App
             this.timer1.Enabled = true;
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // btnsinginsetting
+            // 
+            this.btnsinginsetting.Name = "btnsinginsetting";
+            this.btnsinginsetting.Size = new System.Drawing.Size(180, 22);
+            this.btnsinginsetting.Text = "SingIn Settings";
+            this.btnsinginsetting.Click += new System.EventHandler(this.btnsinginsetting_Click);
             // 
             // Mainfrm
             // 
@@ -204,5 +214,6 @@ namespace Accounting.App
         private System.Windows.Forms.ToolStripStatusLabel lblDate;
         private System.Windows.Forms.ToolStripStatusLabel lbltime;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.ToolStripMenuItem btnsinginsetting;
     }
 }

@@ -90,6 +90,12 @@
     <Compile Include="Accounting\Reportfrm.Designer.cs">
       <DependentUpon>Reportfrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="SingInfrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SingInfrm.Designer.cs">
+      <DependentUpon>SingInfrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Validator\BaseValidator.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -144,6 +150,9 @@
     </Compile>
     <EmbeddedResource Include="Accounting\Reportfrm.resx">
       <DependentUpon>Reportfrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SingInfrm.resx">
+      <DependentUpon>SingInfrm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

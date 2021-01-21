@@ -84,6 +84,9 @@
     <Compile Include="Repository\ICustomerRepository.cs" />
     <Compile Include="Service\BaseRepository.cs" />
     <Compile Include="Service\CustomerRepository.cs" />
+    <Compile Include="SingIn.cs">
+      <DependentUpon>AccountingModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="ViewModel\ReportViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

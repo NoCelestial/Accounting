@@ -49,7 +49,24 @@ namespace Accounting.App
 
         private void Mainfrm_Load(object sender, EventArgs e)
         {
-            lblDate.Text = DateTime.Now.ToLongDateString();
+            this.Hide();
+            SingInfrm frm = new SingInfrm();
+            if (frm.ShowDialog()==DialogResult.OK)
+            {
+                this.Show();
+                lblDate.Text = DateTime.Now.ToLongDateString();
+            }
+            else
+            {
+                Application.Exit();
+            }
+        }
+
+        private void btnsinginsetting_Click(object sender, EventArgs e)
+        {
+            SingInfrm frm = new SingInfrm();
+            frm.IsEdit = true;
+            frm.ShowDialog();
         }
     }
 }
