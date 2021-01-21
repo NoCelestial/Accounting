@@ -87,6 +87,7 @@
     <Compile Include="SingIn.cs">
       <DependentUpon>AccountingModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\MonthReportViewModel.cs" />
     <Compile Include="ViewModel\ReportViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

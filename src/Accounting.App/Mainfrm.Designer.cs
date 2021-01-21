@@ -33,6 +33,7 @@ namespace Accounting.App
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Mainfrm));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnsetting = new System.Windows.Forms.ToolStripDropDownButton();
+            this.btnsinginsetting = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.btmcustomer = new System.Windows.Forms.ToolStripButton();
             this.btnNewAccounting = new System.Windows.Forms.ToolStripButton();
@@ -43,11 +44,18 @@ namespace Accounting.App
             this.lblDate = new System.Windows.Forms.ToolStripStatusLabel();
             this.lbltime = new System.Windows.Forms.ToolStripStatusLabel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.btnsinginsetting = new System.Windows.Forms.ToolStripMenuItem();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lbl = new System.Windows.Forms.Label();
+            this.lblincome = new System.Windows.Forms.Label();
+            this.lblcost = new System.Windows.Forms.Label();
+            this.lblbalance = new System.Windows.Forms.Label();
             this.toolStrip1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.statusStrip1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -70,6 +78,13 @@ namespace Accounting.App
             this.btnsetting.Name = "btnsetting";
             this.btnsetting.Size = new System.Drawing.Size(62, 22);
             this.btnsetting.Text = "Settings";
+            // 
+            // btnsinginsetting
+            // 
+            this.btnsinginsetting.Name = "btnsinginsetting";
+            this.btnsinginsetting.Size = new System.Drawing.Size(152, 22);
+            this.btnsinginsetting.Text = "SingIn Settings";
+            this.btnsinginsetting.Click += new System.EventHandler(this.btnsinginsetting_Click);
             // 
             // toolStrip2
             // 
@@ -165,18 +180,78 @@ namespace Accounting.App
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // btnsinginsetting
+            // groupBox1
             // 
-            this.btnsinginsetting.Name = "btnsinginsetting";
-            this.btnsinginsetting.Size = new System.Drawing.Size(180, 22);
-            this.btnsinginsetting.Text = "SingIn Settings";
-            this.btnsinginsetting.Click += new System.EventHandler(this.btnsinginsetting_Click);
+            this.groupBox1.Controls.Add(this.lblbalance);
+            this.groupBox1.Controls.Add(this.lblcost);
+            this.groupBox1.Controls.Add(this.lblincome);
+            this.groupBox1.Controls.Add(this.lbl);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Location = new System.Drawing.Point(12, 90);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(307, 126);
+            this.groupBox1.TabIndex = 4;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Month Report";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(11, 19);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(53, 17);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "InCome";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(11, 54);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(34, 17);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Cost";
+            // 
+            // lbl
+            // 
+            this.lbl.AutoSize = true;
+            this.lbl.Location = new System.Drawing.Point(11, 97);
+            this.lbl.Name = "lbl";
+            this.lbl.Size = new System.Drawing.Size(53, 17);
+            this.lbl.TabIndex = 2;
+            this.lbl.Text = "Balance";
+            // 
+            // lblincome
+            // 
+            this.lblincome.Location = new System.Drawing.Point(131, 19);
+            this.lblincome.Name = "lblincome";
+            this.lblincome.Size = new System.Drawing.Size(170, 17);
+            this.lblincome.TabIndex = 3;
+            this.lblincome.Text = "0";
+            // 
+            // lblcost
+            // 
+            this.lblcost.Location = new System.Drawing.Point(131, 54);
+            this.lblcost.Name = "lblcost";
+            this.lblcost.Size = new System.Drawing.Size(170, 13);
+            this.lblcost.TabIndex = 4;
+            this.lblcost.Text = "0";
+            // 
+            // lblbalance
+            // 
+            this.lblbalance.Location = new System.Drawing.Point(131, 97);
+            this.lblbalance.Name = "lblbalance";
+            this.lblbalance.Size = new System.Drawing.Size(170, 13);
+            this.lblbalance.TabIndex = 5;
+            this.lblbalance.Text = "0";
             // 
             // Mainfrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(678, 455);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.toolStrip2);
@@ -195,6 +270,8 @@ namespace Accounting.App
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -215,5 +292,12 @@ namespace Accounting.App
         private System.Windows.Forms.ToolStripStatusLabel lbltime;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.ToolStripMenuItem btnsinginsetting;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label lblbalance;
+        private System.Windows.Forms.Label lblcost;
+        private System.Windows.Forms.Label lblincome;
+        private System.Windows.Forms.Label lbl;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
     }
 }

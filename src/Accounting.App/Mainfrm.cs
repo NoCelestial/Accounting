@@ -21,18 +21,21 @@ namespace Accounting.App
         {
             CustomerManagefrm frm = new CustomerManagefrm();
             frm.ShowDialog();
+            Report();
         }
 
         private void btnNewAccounting_Click(object sender, EventArgs e)
         {
             NewAccountingfrm frm = new NewAccountingfrm();
             frm.ShowDialog();
+            Report();
         }
 
         private void btnreportincome_Click(object sender, EventArgs e)
         {
             Reportfrm frm = new Reportfrm();
             frm.ShowDialog();
+            Report();
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e)
@@ -40,6 +43,7 @@ namespace Accounting.App
             Reportfrm frm = new Reportfrm();
             frm.TypeID = 2;
             frm.ShowDialog();
+            Report();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -55,6 +59,7 @@ namespace Accounting.App
             {
                 this.Show();
                 lblDate.Text = DateTime.Now.ToLongDateString();
+                Report();
             }
             else
             {
@@ -62,6 +67,13 @@ namespace Accounting.App
             }
         }
 
+        void Report()
+        {
+           var rep =  Account.MainFormReport();
+           lblincome.Text = rep.InCome.ToString();
+           lblcost.Text = rep.Cost.ToString();
+           lblbalance.Text = rep.Balance.ToString();
+        }
         private void btnsinginsetting_Click(object sender, EventArgs e)
         {
             SingInfrm frm = new SingInfrm();
